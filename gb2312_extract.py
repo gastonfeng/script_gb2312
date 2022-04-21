@@ -1,15 +1,16 @@
 # coding : gb2312
-# ÅÅÐò gb2312code h*256+l 
+# ï¿½ï¿½ï¿½ï¿½ gb2312code h*256+l 
+import ctypes  # ï¿½ï¿½ï¿½ï¿½Cï¿½Ä¼ï¿½
 import os
-import ctypes  #ÒýÓÃCÎÄ¼þ
 
 
 def byte_strhex(b1):
     a = int.from_bytes(b1, byteorder='big', signed=False)
     a = hex(a)
     return str(a)
-   
-#ËÑË÷Ö¸¶¨ÔªËØ
+
+
+# ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ôªï¿½ï¿½
 def search(list_str, str):
     count = 0
     for i in range(len(list_str)):
@@ -18,7 +19,6 @@ def search(list_str, str):
     return count
 
 '''
-æž„é€ æ•°ç»?
 {
     char p[2];
     char font[24];
@@ -116,13 +116,13 @@ def insert_sort2(listd, value):
     pass
 
 
-#´ò¿ª¶ÔÓ¦ÎÄ¼þ
+#ï¿½ò¿ª¶ï¿½Ó¦ï¿½Ä¼ï¿½
 os.system("gcc -shared -Wl,-soname,adder -o GB2312_12.so -fPIC ./GB2312_12_12.c")  #ç¼–è¯‘ è°ƒç”¨Cå‡½æ•°
 fp = open("./11.txt",encoding="gb2312")
 fp1 = open("./font_gb2312.h","w",encoding="gb2312")
 GB2312_12 = ctypes.CDLL("./GB2312_12.so")  
 
-#¹¹½¨Êý×é
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 buff_type = ctypes.c_char*24
 buff = buff_type()
 point_buff = ctypes.pointer(buff)  
